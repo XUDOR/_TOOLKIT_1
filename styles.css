@@ -71,6 +71,7 @@ section {
 #mixer-on-Button,
 #MIXER-mute-Button {
   padding: 7px 10px;
+  margin: 3px;
   background-color: #59584f;
   color: white;
   border: 1px solid black;
@@ -80,4 +81,33 @@ section {
 /* Hover effect for all buttons */
 button:hover {
   background-color: #0056b3;
+}
+
+
+/* _____________________________________________________________________________________________ */
+/* _____________________________________________________________________________________________ */
+/* _____________________________________________________________________________________________ */
+/* Mobile-specific styles */
+
+
+@media(max-width: 768px) {
+  header {
+    text-align: left; /* Center the header and footer on mobile */
+  }
+
+  .footer {
+    text-align: right; /* Center the header and footer on mobile */
+
+  }
+
+  .container-1 {
+    justify-content: center; /* Center the content horizontally on mobile */
+    align-items: center; /* Center the content vertically on mobile */
+  }
+
+  section {
+    width: 100%;  /* Full width on mobile */
+    height: auto; /* Let the height adjust based on content */
+    margin: 10px 0; /* Margin to give some spacing */
+  }
 }
