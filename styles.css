@@ -48,7 +48,8 @@ main {
   
 }
 
-.drum1, .synth1, .drum1 {
+.drum1, .synth1, .sampler1, .mixer
+ {
   margin: 5px;
 
 
