@@ -60,15 +60,23 @@ section {
   height: 300px;
 }
 
-button {
+/* Correct ID selectors */
+#drum1-on-Button,
+#DRUM1-SEQstart-Button,
+#synth1-on-Button,
+#SYNTH1-SEQstart-Button,
+#sampler1-on-Button,
+#SAMPLER1-SEQstart-Button,
+#mixer-on-Button,
+#MIXER-mute-Button {
   padding: 7px 10px;
   background-color: #59584f;
   color: white;
   border: 1px solid black;
-  
   cursor: pointer;
 }
 
+/* Hover effect for all buttons */
 button:hover {
   background-color: #0056b3;
 }
