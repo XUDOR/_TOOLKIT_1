@@ -4,6 +4,11 @@ body {
   font-size: .8em;
   background-color: #afac9c;
   color: #efefe6;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -27,11 +32,17 @@ footer {
   background-color: #efefe6;
   color: #2d2c2a;
   font-size: .7em;
-  padding: 10px ;
+  padding: 10px;
+  flex-shrink: 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 main {
+  flex: 1;
   margin: 20px 0;
+ 
 }
 
 .container-1 {
@@ -51,9 +62,7 @@ main {
 .drum1, .synth1, .sampler1, .mixer
  {
   margin: 5px;
-
-
-
+  
 }
 section {
   border: 1px solid white;
@@ -61,13 +70,25 @@ section {
   height: 300px;
 }
 
+.ControlCont {
+  border: 1px solid black;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+margin: 2px;
+
+}
+
 /* Correct ID selectors */
 #drum1-on-Button,
 #DRUM1-SEQstart-Button,
+#DRUM1-SEQstop-Button,
 #synth1-on-Button,
 #SYNTH1-SEQstart-Button,
+#SYNTH1-SEQstop-Button,
 #sampler1-on-Button,
 #SAMPLER1-SEQstart-Button,
+#SAMPLER1-SEQstop-Button,
 #mixer-on-Button,
 #MIXER-mute-Button {
   padding: 7px 10px;
@@ -78,10 +99,123 @@ section {
   cursor: pointer;
 }
 
-/* Hover effect for all buttons */
-button:hover {
-  background-color: #0056b3;
+#mixer-on-Button {
+
+  
 }
+
+
+/* on */
+#drum1-on-Button:hover,
+#synth1-on-Button:hover,
+#sampler1-on-Button:hover,
+#mixer-on-Button:hover
+ {
+  background-color: black;
+}
+
+/* start */
+#DRUM1-SEQstart-Button:hover,
+#SYNTH1-SEQstart-Button:hover,
+#SAMPLER1-SEQstart-Button:hover
+{
+  background-color: #a1ad39;
+}
+
+/* stop */
+#DRUM1-SEQstop-Button:hover,
+#SYNTH1-SEQstop-Button:hover,
+#SAMPLER1-SEQstop-Button:hover
+{
+  background-color: #890e0e;
+}
+
+
+
+
+#MIXER-mute-Button {
+  padding: 7px 10px;
+  margin: 3px;
+  background-color: white;
+  color: #e0431e;
+  border: 1px solid black;
+  cursor: pointer;
+}
+#MIXER-mute-Button:hover {
+  background-color: #e0431e;
+  color:white;
+}
+
+
+
+.ChannelGroup {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.channel1,
+.channel2,
+.channel3,
+.master
+{
+  border: 1px solid #617068;
+  padding: 3px;
+  margin: 3px;
+  width: 35px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers child elements vertically */ 
+}
+
+.ch1-label,
+.ch2-label,
+.ch3-label,
+.master-label
+{
+  border-bottom: 1px solid gray;
+  text-align: center;
+  margin: 2px;
+  align-self: flex-start; /* Aligns the label to the top */
+}
+
+
+.chVol {
+  border: 1px solid black;
+  background-color: #efefe6;
+  width: 98%;
+  height: 20px;
+  margin-top: auto;
+  align-self: center; /* Centers the chVol horizontally */
+  display: flex;
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Ensures content inside chVol is centered */
+  cursor: crosshair;
+}
+
+.chVol-value, .sum-value {
+  border: 1px solid #252b2b;
+  background-color: #637482;
+  width: 98%;
+  height: 20px;
+  margin-top: 2px;
+  align-self: center; /* Centers the chVol horizontally */
+  display: flex;
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Ensures content inside chVol is centered */
+  color: #efefe6;
+  
+}
+
+.sum-value { 
+  border: 1px solid #252b2b;
+  background-color: #2f82af;
+  color: #efefe6;
+
+}
+
+
 
 
 /* _____________________________________________________________________________________________ */
