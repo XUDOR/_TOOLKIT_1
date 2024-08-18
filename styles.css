@@ -100,7 +100,9 @@ margin: 2px;
 }
 
 #mixer-on-Button {
-
+  border: 1px solid #53a9ad;
+  background-color: #efefe6;
+  color: #2f82af;
   
 }
 
