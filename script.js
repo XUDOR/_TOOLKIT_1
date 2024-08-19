@@ -25,11 +25,14 @@ function updateSumValue() {
 
   // Change the background color based on the average volume
   if (avgVolume <= 65) {
-      sumValue.style.backgroundColor = '#2f9e41';  // 0-65% - green
+      sumValue.style.backgroundColor = '#90c10a';  // 0-65% - green
+      sumValue.style.color = '#184551'; 
   } else if (avgVolume <= 85) {
       sumValue.style.backgroundColor = '#FFD700';  // 66-85% - gold
+      sumValue.style.color = 'red';
   } else {
       sumValue.style.backgroundColor = '#e0431e';  // 86-100% - red
+      sumValue.style.color = '#021b16';
   }
 }
 
@@ -73,14 +76,20 @@ document.querySelectorAll('.chVol').forEach(function(slider) {
 
 // Toggle functionality for 'on' and 'mute' buttons
 document.querySelectorAll('#mixer-on-Button, #MIXER-mute-Button').forEach(function(button) {
-  button.addEventListener('click', function() {
-      button.classList.toggle('active');
-      if (button.classList.contains('active')) {
-          button.style.backgroundColor = '#ADD8E6'; // Light Blue
-          button.style.color = 'white';
-      } else {
-          button.style.backgroundColor = '#59584f';
-          button.style.color = 'white';
-      }
+    button.addEventListener('click', function() {
+        button.classList.toggle('active');
+        if (button.classList.contains('active')) {
+            if (button.id === 'MIXER-mute-Button') {
+                button.style.backgroundColor = '#e0431e'; // Red
+                button.style.color = '#021b16'; // Text color
+            } else {
+                button.style.backgroundColor = '#ADD8E6'; // Light Blue for other buttons
+                button.style.color = '#021b16';
+            }
+        } else {
+            button.style.backgroundColor = '#59584f';
+            button.style.color = 'white';
+        }
+    });
   });
-});
+  
