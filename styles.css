@@ -55,6 +55,7 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .container-title {
@@ -293,3 +294,4 @@ margin: 2px;
     margin: 10px 0; /* Margin to give some spacing */
   }
 }
+
