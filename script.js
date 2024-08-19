@@ -27,7 +27,7 @@ function updateSumValue() {
   if (avgVolume <= 65) {
       sumValue.style.backgroundColor = '#2f9e41';  // 0-65% - green
   } else if (avgVolume <= 85) {
-      sumValue.style.backgroundColor = '#ffe135';  // 66-85% - yellow
+      sumValue.style.backgroundColor = '#FFD700';  // 66-85% - gold
   } else {
       sumValue.style.backgroundColor = '#e0431e';  // 86-100% - red
   }
@@ -76,8 +76,8 @@ document.querySelectorAll('#mixer-on-Button, #MIXER-mute-Button').forEach(functi
   button.addEventListener('click', function() {
       button.classList.toggle('active');
       if (button.classList.contains('active')) {
-          button.style.backgroundColor = 'yellow';
-          button.style.color = 'red';
+          button.style.backgroundColor = '#ADD8E6'; // Light Blue
+          button.style.color = 'white';
       } else {
           button.style.backgroundColor = '#59584f';
           button.style.color = 'white';

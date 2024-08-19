@@ -233,7 +233,7 @@ margin: 2px;
 .slider-thumb {
   width: 100%; /* Full width */
   height: 10px; /* Small height */
-  background-color: #2f82af;
+  background-color: gray;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -254,6 +254,11 @@ margin: 2px;
   
 }
 
+/* Active button styling */
+#MIXER-mute-Button.active, #mixer-on-Button.active {
+  background-color: #ADD8E6; /* Light Blue */
+  color: white;
+}
 
 /* _____________________________________________________________________________________________ */
 /* _____________________________________________________________________________________________ */
