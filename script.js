@@ -38,41 +38,49 @@ function updateSumValue() {
 
 // Function to handle slider interactions
 document.querySelectorAll('.chVol').forEach(function(slider) {
-  // Create the slider thumb element
-  const thumb = document.createElement('div');
-  thumb.classList.add('slider-thumb');
-  slider.appendChild(thumb);
-
-  slider.addEventListener('mousedown', function(e) {
-      const sliderHeight = slider.clientHeight;
-      const sliderRect = slider.getBoundingClientRect();
-      const chVolValue = slider.nextElementSibling;
-
-      function onMouseMove(e) {
-          let newTop = e.clientY - sliderRect.top;
-
-          // Boundaries for slider movement
-          if (newTop < 0) newTop = 0;
-          if (newTop > sliderHeight) newTop = sliderHeight;
-
-          const valuePercentage = 100 - (newTop / sliderHeight) * 100; // Invert to make slider go top-to-bottom
-          thumb.style.top = newTop + 'px';
-
-          // Update chVol-value based on slider position
-          chVolValue.style.height = valuePercentage + '%';
-          chVolValue.textContent = Math.round(valuePercentage) + '%';
-
-          // Update the sum-value based on the sum of all channel volumes
-          updateSumValue();
-      }
-
-      document.addEventListener('mousemove', onMouseMove);
-
-      document.addEventListener('mouseup', function() {
-          document.removeEventListener('mousemove', onMouseMove);
-      }, { once: true });
+    // Create the slider thumb element
+    const thumb = document.createElement('div');
+    thumb.classList.add('slider-thumb');
+    slider.appendChild(thumb);
+  
+    function onMove(e) {
+        const sliderHeight = slider.clientHeight;
+        const sliderRect = slider.getBoundingClientRect();
+        const chVolValue = slider.nextElementSibling;
+  
+        let clientY = e.clientY || e.touches[0].clientY;
+        let newTop = clientY - sliderRect.top;
+  
+        // Boundaries for slider movement
+        if (newTop < 0) newTop = 0;
+        if (newTop > sliderHeight) newTop = sliderHeight;
+  
+        const valuePercentage = 100 - (newTop / sliderHeight) * 100; // Invert to make slider go top-to-bottom
+        thumb.style.top = newTop + 'px';
+  
+        // Update chVol-value based on slider position
+        chVolValue.style.height = valuePercentage + '%';
+        chVolValue.textContent = Math.round(valuePercentage) + '%';
+  
+        // Update the sum-value based on the sum of all channel volumes
+        updateSumValue();
+    }
+  
+    slider.addEventListener('mousedown', function(e) {
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', function() {
+            document.removeEventListener('mousemove', onMove);
+        }, { once: true });
+    });
+  
+    slider.addEventListener('touchstart', function(e) {
+        document.addEventListener('touchmove', onMove);
+        document.addEventListener('touchend', function() {
+            document.removeEventListener('touchmove', onMove);
+        }, { once: true });
+    });
   });
-});
+  
 
 // Toggle functionality for 'on' and 'mute' buttons
 document.querySelectorAll('#mixer-on-Button, #MIXER-mute-Button').forEach(function(button) {
